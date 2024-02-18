@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.*;
 public class MainController {
     private final BookService bookService;
     @PostMapping("/books")
-    public String book(@RequestBody @Valid BookCreate params){
-        return "d";
+    public void book(@RequestBody @Valid BookCreate request){
+        bookService.register(request);
     }
-    @GetMapping("/books/{bookId")
+    @GetMapping("/books/{bookId}")
     public void get(@PathVariable Long bookId) {
+        bookService.get(bookId);
     }
 
 }
