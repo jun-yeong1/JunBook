@@ -1,4 +1,4 @@
-package com.JunBook.entity;
+package com.JunBook.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
