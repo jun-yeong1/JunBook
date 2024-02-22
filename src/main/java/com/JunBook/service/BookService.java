@@ -1,6 +1,6 @@
 package com.JunBook.service;
 
-import com.JunBook.entity.Book;
+import com.JunBook.domain.Book;
 import com.JunBook.repository.BookRepository;
 import com.JunBook.request.BookCreate;
 import jakarta.validation.Valid;
