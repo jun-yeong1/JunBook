@@ -26,6 +26,9 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "signup_form";
         }
+        /**
+         * bindingResult.rejectValue(필드명, 오류 코드, 오류 메시지)
+         */
         if (!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
             bindingResult.rejectValue("password2", "passwordInCorrect",
                     "2개의 패스워드가 일치하지 않습니다.");
@@ -34,5 +37,10 @@ public class UserController {
         userService.create(userCreateForm.getUsername(),
                 userCreateForm.getEmail(), userCreateForm.getPassword1());
         return "redirect:/";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login_form";
     }
 }
