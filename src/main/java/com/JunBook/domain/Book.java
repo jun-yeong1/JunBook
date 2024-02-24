@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // 책 id
+    private Long bookid; // 책 id
     
     private String title; // 책 제목
     
@@ -24,5 +24,4 @@ public class Book {
         this.title = title;
         this.content = content;
     }
-
 }

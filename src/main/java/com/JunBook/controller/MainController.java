@@ -1,6 +1,8 @@
 package com.JunBook.controller;
 
+import com.JunBook.domain.Book;
 import com.JunBook.request.BookCreate;
+import com.JunBook.response.BookResponse;
 import com.JunBook.service.BookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +15,13 @@ import org.springframework.web.bind.annotation.*;
 public class MainController {
     private final BookService bookService;
     @PostMapping("/books")
-    public void book(@RequestBody @Valid BookCreate request){
-        bookService.register(request);
+    public Long post(@RequestBody @Valid BookCreate request){
+        Long bookId = bookService.register(request);
+        return bookId;
     }
     @GetMapping("/books/{bookId}")
-    public void get(@PathVariable Long bookId) {
-        bookService.get(bookId);
+    public BookResponse get(@PathVariable Long bookId) {
+        return bookService.get(bookId);
     }
 
 }
