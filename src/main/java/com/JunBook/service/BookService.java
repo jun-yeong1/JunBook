@@ -10,9 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 @Slf4j
 @Service
+    /*
+    * bookRepository 불러오기
+    * */
 @RequiredArgsConstructor
 public class BookService {
     private final BookRepository bookRepository;
+
     public Long register(@Valid BookCreate bookCreate) {
         Book book = Book.builder()
                 .title(bookCreate.getTitle())
@@ -21,14 +25,13 @@ public class BookService {
         bookRepository.save(book);
         return book.getId();
     }
-    public BookResponse get(Long bookId) {
-        Book book = bookRepository.findById(bookId)
+    public BookResponse get(Long book_id) {
+        Book book = bookRepository.findById(book_id)
                 .orElseThrow( () -> new IllegalArgumentException("존재하지 않는 상품입니다."));
-        BookResponse bookResponseDto = BookResponse.builder()
-                .bookid(book.getId())
+        return BookResponse.builder()
+                .book_id(book.getId())
                 .title(book.getTitle())
                 .content(book.getContent())
                 .build();
-        return bookResponseDto;
     }
 }

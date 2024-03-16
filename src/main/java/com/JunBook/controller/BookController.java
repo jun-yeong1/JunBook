@@ -12,16 +12,17 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class MainController {
+public class BookController {
     private final BookService bookService;
+
     @PostMapping("/books")
     public Long post(@RequestBody @Valid BookCreate request){
-        Long bookId = bookService.register(request);
-        return bookId;
+        Long book_id = bookService.register(request);
+        return book_id;
     }
-    @GetMapping("/books/{bookId}")
-    public BookResponse get(@PathVariable Long bookId) {
-        return bookService.get(bookId);
+    @GetMapping("/books/{book_id}")
+    public BookResponse get(@PathVariable Long book_id) {
+        return bookService.get(book_id);
     }
 
 }
