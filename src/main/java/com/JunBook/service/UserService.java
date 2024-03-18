@@ -16,7 +16,7 @@ public class UserService {
         User user = new User();
         user.setUsername(username);
         user.setEmail(email);
-        /**
+        /*
          * BCryptPasswordEncoder = spring security
          * 비밀번호 암호화
          */

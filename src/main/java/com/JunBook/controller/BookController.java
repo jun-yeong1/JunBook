@@ -32,7 +32,7 @@ public class BookController {
     /*
     * 책 정보 전체 조회하기
     * @PageableDefault 페이징 처리 사이즈 5
-    * */
+    */
     @GetMapping("/books")
     public List<BookResponse> getList(@PageableDefault(size = 5) Pageable pageable) {
         List<BookResponse> list = bookService.getList(pageable);
@@ -41,15 +41,14 @@ public class BookController {
     /*
      * 책 정보 수정 기능
      * @RequestBody, @Valid 요청 데이터 DTO 대입
-     * */
+     */
     @PatchMapping("/books/{book_id}")
     public void edit(@PathVariable Long book_id, @RequestBody @Valid BookEdit request) {
         bookService.edit(book_id, request);
     }
     /*
      * 책 정보 삭체 기능
-     *
-     * */
+     */
     @DeleteMapping("/books/{book_id}")
     public void delete(@PathVariable Long book_id) {
         bookService.delete(book_id);
