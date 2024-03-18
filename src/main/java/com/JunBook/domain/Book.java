@@ -1,13 +1,11 @@
 package com.JunBook.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
+@Setter
 @Entity
 public class Book {
     @Id
