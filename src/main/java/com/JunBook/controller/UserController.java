@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("signup")
+    @GetMapping("/signup")
     public String signup(UserCreateForm userCreateForm) {
         return "signup_form";
     }
 
-    @PostMapping("signup")
+    @PostMapping("/signup")
     public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "signup_form";
         }
-        /**
+        /*
          * bindingResult.rejectValue(필드명, 오류 코드, 오류 메시지)
          */
         if (!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
@@ -39,7 +39,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("login")
+    @GetMapping("/login")
     public String login() {
         return "login_form";
     }
